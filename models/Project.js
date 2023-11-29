@@ -1,13 +1,18 @@
 import mongoose from "mongoose";
 
 const project= new mongoose.Schema({
+
     name:{
         required:true,
         type: String,
     },
-    name:{
+    description:{
         required:true,
-        type: Number
+        type: String,
+    },
+    img:{
+        required:true,
+        type: String,
     },
 });
 
