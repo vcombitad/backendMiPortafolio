@@ -34,12 +34,14 @@ router.post('/add', async function (req, res){
         name: req.body.name,
         description: req.body.description,
         img: req.body.img,
+        url: req.body.url,
+        technology: req.body.technology,
     });
     try {
         const guardar= await project.save();
         res.status(200).json(guardar)
     } catch (error) {
-        res.status(500).json('errorr!')
+        res.status(500).json(error)
     }
 })
 
@@ -58,12 +60,14 @@ router.put('/update/:id', async function (req, res) {
         const {name}= req.body;
         const {description}= req.body;
         const {img}= req.body;
+        const {url}= req.body;
+        const {technology}= req.body;
         const {id}= req.params
 
-        let result= await Project.findByIdAndUpdate(id, {name, description, img})
+        let result= await Project.findByIdAndUpdate(id, {name, description, img, url, technology})
         res.status(200).send({
             success: true,
-            message:'kahkah',
+            message:'actualizado',
             result,
         })
     

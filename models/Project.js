@@ -14,6 +14,15 @@ const project= new mongoose.Schema({
         required:true,
         type: String,
     },
+    url:{
+        required:true,
+        type: String,
+    },
+    
+    technology:{
+        required:true,
+        type: String,
+    },
 });
 
 export default mongoose.model('Projects', project)
